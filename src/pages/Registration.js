@@ -17,7 +17,7 @@ function Registration() {
      });
 
      const onSubmit = (data) => {
-        axios.post("http://localhost:3001/auth", data).then(() =>{
+        axios.post("https://backend-blog-0lbc.onrender.com/auth", data).then(() =>{
             console.log(data);
         })
      };

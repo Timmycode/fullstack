@@ -7,7 +7,7 @@ function ChangePassword() {
   const[newPassword, setNewPassword] = useState("");
 
   const changePassword = () =>  {
-    axios.put("http://localhost:3001/auth/changepassword", 
+    axios.put("https://backend-blog-0lbc.onrender.com/auth/changepassword", 
     {oldPassword: oldPassword, newPassword: newPassword}, 
   
       {

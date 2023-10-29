@@ -11,12 +11,12 @@ function Profile() {
     const{authState} = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
+    axios.get(`https://backend-blog-0lbc.onrender.com/auth/basicinfo/${id}`).then((response) => {
      setUsername(response.data.username);
      console.log(response.data.username);
     },[]);
 
-    axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
+    axios.get(`https://backend-blog-0lbc.onrender.com/posts/byuserId/${id}`).then((response) => {
       setListOfPosts(response.data);
     })
   }, [id])

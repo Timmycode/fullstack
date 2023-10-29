@@ -25,7 +25,7 @@ let navigate = useNavigate();
  })
 
  const onSubmit = (data) => {
-    axios.post("http://localhost:3001/posts", data, { headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) =>{
+    axios.post("https://backend-blog-0lbc.onrender.com/posts", data, { headers: {accessToken: localStorage.getItem("accessToken")}}).then((response) =>{
     navigate("/")
       });
  };

@@ -11,14 +11,14 @@ import ChangePassword from './pages/ChangePassword';
 
 
 import { AuthContext } from './helpers/AuthContext';
-import { useState,useEffect } from 'react';
+import { useState,useEffect} from 'react';
 import axios from 'axios';
        
 function App() {
 const[authState, setAuthState] = useState({username: "", id:0, status: false,});
 
 useEffect(() => {
-  axios.get('http://localhost:3001/auth/auth', { headers: {
+  axios.get('https://backend-blog-0lbc.onrender.com/auth/auth', { headers: {
    accessToken: localStorage.getItem("accessToken"),
   }}).then((response) =>{
    if (response.data.error) {
@@ -54,7 +54,7 @@ setAuthState({username: "", id:0, status: false,});
         ) :
         (
         <>
-        <Link to="/">Home Page</Link>
+         
         <Link to="/createpost">Create A Post</Link>
         </>
          )}
@@ -65,7 +65,7 @@ setAuthState({username: "", id:0, status: false,});
          </div>
         </div>
        
-  
+     
         <Routes>
           <Route path="/"  element={<Home />} />
           <Route path="/createpost"  element={<CreatePost />} />

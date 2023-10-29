@@ -17,7 +17,7 @@ function Home() {
     navigate("/login");
   }
   else{
-    axios.get("http://localhost:3001/posts").then((response) =>{
+    axios.get("https://backend-blog-0lbc.onrender.com/posts").then((response) =>{
       setListOfPosts(response.data);
       console.log(response.data);
           })
@@ -25,7 +25,7 @@ function Home() {
  },[])
 
     const likeAPost = (postId) => {
-    axios.post("http://localhost:3001/likes", {PostId: postId}, {headers: {accessToken: localStorage.getItem("accessToken")}}
+    axios.post("https://backend-blog-0lbc.onrender.com/likes", {PostId: postId}, {headers: {accessToken: localStorage.getItem("accessToken")}}
     ).then((response) => {
       /*if(response.data.liked === true){
         alert("You Like this post");

@@ -13,20 +13,20 @@ const{authState} = useContext(AuthContext);
 let navigate = useNavigate();
  
   useEffect(() =>{
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) =>{
+    axios.get(`https://backend-blog-0lbc.onrender.com/posts/byId/${id}`).then((response) =>{
     setPostObject(response.data);
     console.log(response.data);
   });
 });
 
   
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) =>{
+    axios.get(`https://backend-blog-0lbc.onrender.com/comments/${id}`).then((response) =>{
     setComments(response.data)
   },[]);
 
       
 const addComment = () =>{
-    axios.post ("http://localhost:3001/comments", {commentBody: newComment, PostId:id },
+    axios.post ("https://backend-blog-0lbc.onrender.com/comments", {commentBody: newComment, PostId:id },
     {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
@@ -48,14 +48,14 @@ const addComment = () =>{
 }
  
 const deleteComment = (id) => {
-axios.delete(`http://localhost:3001/comments/${id}`, {headers: { accessToken: localStorage.getItem('accessToken')},
+axios.delete(`https://backend-blog-0lbc.onrender.com/comments/${id}`, {headers: { accessToken: localStorage.getItem('accessToken')},
 }).then(() => {
   alert("Token Deleted")
 });
 };
 
 const deletePost = (id) => {
-axios.get(`http://localhost:3001/posts/delId/${id}`,{headers: { accessToken: localStorage.getItem('accessToken')},
+axios.get(`https://backend-blog-0lbc.onrender.com/posts/delId/${id}`,{headers: { accessToken: localStorage.getItem('accessToken')},
 }).then(() => {
     navigate("/")
     console.log(postObject);
@@ -65,7 +65,7 @@ const editPost = (option) => {
   if (option === "title"){
     let newTitle = prompt("Enter New Title: ");
     console.log(newTitle);
-    axios.put("http://localhost:3001/posts/title", {
+    axios.put("https://backend-blog-0lbc.onrender.com/title", {
       newTitle: newTitle, 
       id:id,
     },
@@ -78,7 +78,7 @@ const editPost = (option) => {
   }
   else{
     let newPostText = prompt("Enter New Text: ");
-    axios.put("http://localhost:3001/posts/postText", {
+    axios.put("https://backend-blog-0lbc.onrender.com/posts/postText", {
       newText: newPostText, 
       id:id,
     },
